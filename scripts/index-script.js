@@ -20,6 +20,13 @@ const projects = [
     link_text: "View Project",
     href: "",
   },
+  {
+    title: "Project 4",
+    details:
+      "A blog website build in Python with Django with login and signup now available, made fit for the goat Sam Luther (samsam)",
+    link_text: "View Project",
+    href: "https://github.com/L-A-Phoenix/django-project.git",
+  },
 ];
 
 let modal = document.getElementById("project-modal");
@@ -37,6 +44,8 @@ function openModalByIndex(index) {
   modal_title.textContent = project.title;
   modal_details.textContent = project.details;
   modal_link.textContent = project.link_text;
+  modal_link.href = project.href;
+
   modal.showModal();
 
   document.body.style.overflow = "hidden";
@@ -54,6 +63,10 @@ for (let i = 0; i < card_buttons.length; i++) {
 
 modal_close.addEventListener("click", function () {
   modal.close();
+});
+
+modal_link.addEventListener("click", function () {
+  window.location.href = modal_link.href;
 });
 
 modal.addEventListener("close", function () {
